@@ -1,0 +1,10 @@
+TEST CASE 1
+%%
+    integer low, high, step#xy;
+
+    read(low, high, step#xy );
+    while(low < high)
+        { white (low);
+          write (convert[low]);
+          low := low + step#xy;
+        }

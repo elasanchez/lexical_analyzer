@@ -1,0 +1,22 @@
+TEST CASE 2
+
+  def frequency(self, data):
+        normalizedAudio = data / np.linalg.norm(data)
+
+        cepstrum = self.cepstrum(normalizedAudio)
+
+        min_freq, max_freq = self.FREQUENCY_RANGE
+
+        start = int(self.SAMPLE_RATE / max_freq)
+        end = int(self.SAMPLE_RATE / min_freq)
+
+        narrowed_ceptstrum = cepstrum[start:end]
+
+        peak_ix = narrowed_ceptstrum.argmax()
+
+        freq0 = self.SAMPLE_RATE / (start + peak_ix)
+
+        if freq0 < min_freq or freq0 > max_freq:
+            print "frequency is beyond the frequency humans can hear"
+        else:
+            print freq0
